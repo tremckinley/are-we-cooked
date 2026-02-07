@@ -5,7 +5,10 @@ const apiRoutes = require("./api");
 
 router.get("/", async (req, res) => {
   try {
-    const mealList = apiRoutes.get("/meals");
+    const mealData = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a");
+    const mealsObject = await mealData.json();
+    const mealList = mealsObject.meals;
+
     res.render("home", {
       mealList: mealList
     });
