@@ -41,4 +41,4 @@ Meal.init(
   },
 );
 
-module.exports = Project;
+module.exports = Meal;
