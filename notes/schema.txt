@@ -1,0 +1,24 @@
+Favorites
+- id
+- user id
+- meal id
+- date added
+
+User (not doing)
+- id
+- username
+- password
+- email
+
+Meals
+- id
+- idmeal
+- name
+- category
+- area
+- instructions
+- thumbnail
+- youtube
+- ingredient list
+- measurement list
+- source

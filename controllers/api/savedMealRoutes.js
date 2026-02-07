@@ -1,9 +1,8 @@
 const router = require("express").Router();
-const { Project } = require("../../models");
-const withAuth = require("../../utils/auth");
+//const { savedMeal } = require("../../models");
 
-// TODO: POST /api/projects (logged in only)
-router.post("/", withAuth, async (req, res) => {
+// TODO: POST /api/savedMeal (logged in only)
+router.post("/", async (req, res) => {
   try {
     res.status(501).json({ message: "Not implemented yet" });
   } catch (err) {
@@ -11,8 +10,8 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// TODO: DELETE /api/projects/:id (owner only)
-router.delete("/:id", withAuth, async (req, res) => {
+// TODO: DELETE /api/savedMeal/:id (owner only)
+router.delete("/:id", async (req, res) => {
   try {
     res.status(501).json({ message: "Not implemented yet" });
   } catch (err) {
