@@ -2,5 +2,20 @@
   <div>
     <h1 class="h3 mb-1">Meals</h1>
     <p class="text-muted mb-0">Browse some meals.</p>
+    <div class="meal-grid">
+      {{#each mealList}}
+      <div class="meal-card">
+        <img src="{{this.strMealThumb}}" alt="{{this.strMeal}}">
+        <h3>{{this.strMeal}}</h3>
+        <p>Origin: {{this.strArea}}</p>
+
+        {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
+      </div>
+      {{/each}}
+
+      {{#unless mealList}}
+      <p>No recipes found.</p>
+      {{/unless}}
+    </div>
   </div>
 </div>

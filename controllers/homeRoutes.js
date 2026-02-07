@@ -1,10 +1,14 @@
 const router = require("express").Router();
 const { Meal } = require("../models");
+const apiRoutes = require("./api");
 
 
 router.get("/", async (req, res) => {
   try {
-    res.render("home");
+    const mealList = apiRoutes.get("/meals");
+    res.render("home", {
+      mealList: mealList
+    });
   } catch (err) {
     res.status(500).json(err);
   }
