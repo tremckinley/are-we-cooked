@@ -1,0 +1,17 @@
+<div>
+    <h1>My Saved Meals</h1>
+    <div class="d-flex meal-grid">
+        {{#each myMeals}}
+        <a href="/meal/{{this.id}}">
+            <div class="meal-card">
+                <img src="{{this.thumbnail}}" alt="{{this.name}} height=" 200" width="200">
+
+                <h4>{{this.name}}</h4>
+                <p>Origin: {{this.area}}</p>
+
+                {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
+            </div>
+        </a>
+        {{/each}}
+    </div>
+</div>

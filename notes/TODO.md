@@ -4,7 +4,7 @@
 -- This week's menu X
 -- Navbar X
   -- Search X
-  -- Random Meal (Footer?)
+  -- Random Meal X
 
 - Search page
 -- Search by ingredient
