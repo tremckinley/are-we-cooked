@@ -1,18 +1,21 @@
 ## Pages that I want
 - Homepage
--- Top 5 meals at the top
--- This week's menu
--- Navbar
-  -- Search
-  -- Random Meal
-  -- Logout
+-- Top 5 meals at the top X
+-- This week's menu X
+-- Navbar X
+  -- Search X
+  -- Random Meal (Footer?)
 
 - Search page
--- Search bar to search by ingredient
+-- Search by ingredient
+-- Search by category
+-- Search by first letter
+-- Link to the meal db
 
-- Profile
+- My Meals
+-- Saved meals
 -- Favorites
 
 
-- Shopping List
+- Shopping List (maybe?)
 -- Lists out all ingredients of chosen meals
