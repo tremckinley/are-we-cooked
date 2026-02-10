@@ -1,11 +1,11 @@
 const router = require("express").Router();
 
-const mealdbRoutes = require('./mealdbRoutes');
+//const mealdbRoutes = require('./mealdbRoutes');
 //const savedMealRoutes = require('./mealdbRoutes');
 //const favoritesRoutes = require('./favoritesRoutes');
 
 //router.use('/favorites', favoritesRoutes);
 //router.use('/savedMeals', savedMealRoutes);
-router.use('/meals', mealdbRoutes)
+//router.use('/meals', mealdbRoutes)
 
 module.exports = router;
