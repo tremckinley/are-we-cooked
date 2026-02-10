@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Meal } = require("../models");
 const apiRoutes = require("./api");
-const { getMealbyFirstLetter } = require("../utils/mealdb-helpers");
+const { getMealbyFirstLetter, getRandomMeal, configureMealDBData } = require("../utils/mealdb-helpers");
 
 
 
@@ -30,5 +30,17 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/random', async (req, res) => {
+  try {
+    const rawMeal = await getRandomMeal();
+    const configuredMeal = configureMealDBData(rawMeal);
+    res.render('meal', {
+      mealData: configuredMeal
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;
