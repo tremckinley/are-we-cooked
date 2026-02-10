@@ -1,12 +1,12 @@
 <div class="d-flex justify-content-between align-items-end mb-3">
   <div>
-    <h1 class="h3 mb-1">Meals</h1>
+    <h1 class="h4 mb-1">Meals</h1>
     <p class="text-muted mb-0">This weeks menu</p>
     <div class="meal-grid d-flex">
       {{#each thisWeekMeals}}
       <div class="meal-card">
         <img src="{{this.thumbnail}}" alt="{{this.name}} height=" 200" width="200">
-        <h3>{{this.name}}</h3>
+        <h4>{{this.name}}</h4>
         <p>Origin: {{this.area}}</p>
 
         {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
@@ -23,7 +23,7 @@
       {{#each favoriteMeals}}
       <div class="meal-card">
         <img src="{{this.thumbnail}}" alt="{{this.name}} height=" 200" width="200">
-        <h3>{{this.name}}</h3>
+        <h4>{{this.name}}</h4>
         <p>Origin: {{this.area}}</p>
 
         {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
