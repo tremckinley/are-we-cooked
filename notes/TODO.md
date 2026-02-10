@@ -17,5 +17,8 @@
 -- Favorites
 
 
+-Partials
+-- Meal Card
+
 - Shopping List (maybe?)
 -- Lists out all ingredients of chosen meals
