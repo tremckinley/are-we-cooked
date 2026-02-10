@@ -43,4 +43,19 @@ router.get('/random', async (req, res) => {
   }
 })
 
+router.get('/meal/:id', async (req, res) => {
+  try {
+    const selectedMealRaw = await Meal.findByPk(req.params.id);
+    const selectedMeal = selectedMealRaw.get({ plain: true });
+    if (!selectedMeal) {
+      return res.status(404).json({ message: "Meal not found" });
+    }
+    res.render('meal', {
+      mealData: selectedMeal
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 module.exports = router;

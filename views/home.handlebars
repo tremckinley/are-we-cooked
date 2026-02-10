@@ -4,6 +4,7 @@
     <p class="text-muted mb-0">This weeks menu</p>
     <div class="meal-grid d-flex">
       {{#each thisWeekMeals}}
+      <a href="/meal/{{this.id}}">
       <div class="meal-card">
         <img src="{{this.thumbnail}}" alt="{{this.name}} height=" 200" width="200">
         <h4>{{this.name}}</h4>
@@ -11,6 +12,7 @@
 
         {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
       </div>
+      </a>
       {{/each}}
 
       {{#unless thisWeekMeals}}
