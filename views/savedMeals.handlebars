@@ -1,17 +1,38 @@
-<div>
-    <h1>My Saved Meals</h1>
-    <div class="d-flex meal-grid">
-        {{#each myMeals}}
-        <a href="/meal/{{this.id}}">
-            <div class="meal-card">
-                <img src="{{this.thumbnail}}" alt="{{this.name}} height=" 200" width="200">
+<div class="d-flex justify-content-between align-items-end mb-3">
+  <div>
+    <h1 class="h4 mb-1">Meals</h1>
+    <p>My favorite meals</p>
+    <div class="meal-grid d-flex">
+      {{#each favoriteMeals}}
+      <div class="meal-card">
+        <img src="{{this.thumbnail}}" alt="{{this.name}} height=" 200" width="200">
+        <h4>{{this.name}}</h4>
+        <p>Origin: {{this.area}}</p>
 
-                <h4>{{this.name}}</h4>
-                <p>Origin: {{this.area}}</p>
-
-                {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
-            </div>
-        </a>
-        {{/each}}
+        {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
+      </div>
+      {{/each}}
+      {{#unless favoriteMeals}}
+      <p>No favorite meals found.</p>
+      {{/unless}}
     </div>
+    <br>
+    <p class="text-muted mb-0">All Meals</p>
+    <div class="meal-grid d-flex">
+      {{#each myMeals}}
+      <a href="/meal/{{this.id}}">
+      <div class="meal-card">
+        <img src="{{this.thumbnail}}" alt="{{this.name}} height=" 200" width="200">
+        <h4>{{this.name}}</h4>
+        <p>Origin: {{this.area}}</p>
+
+        {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
+      </div>
+      </a>
+      {{/each}}
+      {{#unless myMeals}}
+      <p>No recipes found.</p>
+      {{/unless}}
+    </div>
+  </div>
 </div>

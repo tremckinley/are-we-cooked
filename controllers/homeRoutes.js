@@ -67,10 +67,20 @@ router.get("/meal/:id", async (req, res) => {
 router.get("/savedMeals", async (req, res) => {
   try {
     const myMealsRaw = await Meal.findAll();
+    const favoriteMealsRaw = await Meal.findAll({
+      where: {
+        favorite: true,
+      },
+    });
+
     const myMeals = myMealsRaw.map((meal) => meal.get({ plain: true }));
+    const favoriteMeals = favoriteMealsRaw.map((meal) =>
+      meal.get({ plain: true }),
+    );
 
     res.render("savedMeals", {
       myMeals: myMeals,
+      favoriteMeals: favoriteMeals,
     });
   } catch (err) {
     res.status(500).json(err);
