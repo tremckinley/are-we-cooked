@@ -2,15 +2,9 @@
   <div>
     <h1 class="h4 mb-1">Meals</h1>
     <p>My favorite meals</p>
-    <div class="meal-grid d-flex">
+    <div class="meal-grid">
       {{#each favoriteMeals}}
-      <div class="meal-card">
-        <img src="{{this.thumbnail}}" alt="{{this.name}} height=" 200" width="200">
-        <h4>{{this.name}}</h4>
-        <p>Origin: {{this.area}}</p>
-
-        {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
-      </div>
+      {{> meal-card}}
       {{/each}}
       {{#unless favoriteMeals}}
       <p>No favorite meals found.</p>
@@ -18,17 +12,9 @@
     </div>
     <br>
     <p class="text-muted mb-0">All Meals</p>
-    <div class="meal-grid d-flex">
+    <div class="meal-grid">
       {{#each myMeals}}
-      <a href="/meal/{{this.id}}">
-      <div class="meal-card">
-        <img src="{{this.thumbnail}}" alt="{{this.name}} height=" 200" width="200">
-        <h4>{{this.name}}</h4>
-        <p>Origin: {{this.area}}</p>
-
-        {{!-- <a href="/meals/{{this.idMeal}}" class="btn">View Recipe</a> --}}
-      </div>
-      </a>
+      {{> meal-card}}
       {{/each}}
       {{#unless myMeals}}
       <p>No recipes found.</p>

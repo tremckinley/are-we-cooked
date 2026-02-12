@@ -61,10 +61,30 @@ const configureMealDBData = (meal) => {
     };
 }
 
+const getAllCategories = async () => {
+    const mealData = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?c=list");
+    const categoryObject = await mealData.json();
+    return categoryObject.meals.map(meal => meal.strCategory);
+}
+
+const getAllAreas = async () => {
+    const mealData = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list");
+    const areaObject = await mealData.json();
+    return areaObject.meals.map(meal => meal.strArea);
+}
+
+const getAllFirstLetters = async () => {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    return alphabet.split("");
+}
+
 module.exports = {
     getMealbyFirstLetter,
     getMealbyCategory,
     getMealbyName,
     getRandomMeal,
-    configureMealDBData
+    configureMealDBData,
+    getAllCategories,
+    getAllAreas,
+    getAllFirstLetters
 };

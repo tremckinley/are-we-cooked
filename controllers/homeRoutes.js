@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const { Meal } = require("../models");
-const apiRoutes = require("./api");
 const {
-  //getMealbyFirstLetter,
   getRandomMeal,
   configureMealDBData,
+  getAllCategories,
+  getAllAreas,
+  getAllFirstLetters
 } = require("../utils/mealdb-helpers");
 
 router.get("/", async (req, res) => {
@@ -81,6 +82,21 @@ router.get("/savedMeals", async (req, res) => {
     res.render("savedMeals", {
       myMeals: myMeals,
       favoriteMeals: favoriteMeals,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/search", async (req, res) => {
+  try{
+    const categories = await getAllCategories();
+    const areas = await getAllAreas();
+    const firstLetters = await getAllFirstLetters();
+    res.render("searchPage", {
+      categories: categories,
+      areas: areas,
+      firstLetters: firstLetters,
     });
   } catch (err) {
     res.status(500).json(err);
