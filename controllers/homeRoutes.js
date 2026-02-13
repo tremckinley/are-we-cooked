@@ -8,19 +8,16 @@ const {
   getAllFirstLetters
 } = require("../utils/mealdb-helpers");
 
+const {
+    getAllSavedMeals,
+    getFavoriteMeals,
+    getThisWeekMeals
+} = require("../utils/awcdb-helpers");
+
 router.get("/", async (req, res) => {
   try {
-    const favoriteMealsRaw = await Meal.findAll({
-      where: {
-        favorite: true,
-      },
-    });
-
-    const thisWeekMealsRaw = await Meal.findAll({
-      where: {
-        thisweek: true,
-      },
-    });
+    const favoriteMealsRaw = await getFavoriteMeals();
+    const thisWeekMealsRaw = await getThisWeekMeals();
 
     const favoriteMeals = favoriteMealsRaw.map((meal) =>
       meal.get({ plain: true }),
@@ -29,9 +26,14 @@ router.get("/", async (req, res) => {
       meal.get({ plain: true }),
     );
 
+    const favoriteMealIds = favoriteMeals.map((meal) => meal.id);
+    const thisWeekMealIds = thisWeekMeals.map((meal) => meal.id);
+
     res.render("home", {
       favoriteMeals,
       thisWeekMeals,
+      favoriteMealIds,
+      thisWeekMealIds,
     });
   } catch (err) {
     res.status(500).json(err);

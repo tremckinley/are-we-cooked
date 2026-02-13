@@ -18,6 +18,15 @@ const hbs = exphbs.create({
       const d = new Date(date);
       return `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
     },
+    is_included: (val, arr) => {
+      if (!arr || !Array.isArray(arr)) {
+        return false;
+      }
+      return arr.includes(val);
+    },
+    json: (context) => {
+      return JSON.stringify(context);
+    },
     // TODO: add format_amount helper
   },
 });

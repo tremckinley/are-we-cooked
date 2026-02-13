@@ -1,38 +1,37 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Are We Cooked?</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body class="min-vh-100 d-flex flex-column">
-    <header class="border-bottom bg-light">
-      <nav
-        class="container py-3 d-flex justify-content-between align-items-center"
-      >
-        <a class="fw-bold text-decoration-none" href="/">ARE WE COOKED?</a>
-        <div class="d-flex gap-3 align-items-center">
-          <a href="/" class="text-decoration-none">Home</a>
-          <a href="/search" class="text-decoration-none">Search</a>
-          <a href="/savedMeals" class="text-decoration-none">My Meals</a>
-          <a href="/random" class="text-decoration-none">Random Meal</a>
-        </div>
-      </nav>
-    </header>
 
-    <main class="container my-4 flex-grow-1">
-      {{{body}}}
-    </main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Are We Cooked?</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
 
-    <footer class="border-top bg-light">
-      <div class="container py-3 text-muted small">
-        Built with Express + Sequelize + Handlebars (MVC)
+<body class="min-vh-100 d-flex flex-column">
+  <header class="border-bottom bg-light">
+    <nav class="container py-3 d-flex justify-content-between align-items-center">
+      <a class="fw-bold text-decoration-none" href="/">ARE WE COOKED?</a>
+      <div class="d-flex gap-3 align-items-center">
+        <a href="/" class="text-decoration-none">Home</a>
+        <a href="/search" class="text-decoration-none">Search</a>
+        <a href="/savedMeals" class="text-decoration-none">My Meals</a>
+        <a href="/random" class="text-decoration-none">Random Meal</a>
       </div>
-    </footer>
+    </nav>
+  </header>
 
-  </body>
+  <main class="container my-4 flex-grow-1">
+    {{{body}}}
+  </main>
+
+  <footer class="border-top bg-light">
+    <div class="container py-3 text-muted small">
+      Built with Express + Sequelize + Handlebars (MVC)
+    </div>
+  </footer>
+
+  <script src="/js/savedMeal.js"></script>
+</body>
+
 </html>

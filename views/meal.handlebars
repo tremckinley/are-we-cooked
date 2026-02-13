@@ -36,6 +36,36 @@
             {{#if mealData.source}}
             <a href="{{mealData.source}}" target="_blank" class="btn btn-secondary">Original Source</a>
             {{/if}}
+            {{#if mealData.id}}
+            {{#if mealData.favorite}}
+            <button onclick="updateSavedMeal({{mealData.id}}, {favorite: false})" class="btn btn-outline-primary">Remove
+                from Favorites</button>
+            {{else}}
+            <button onclick="updateSavedMeal({{mealData.id}}, {favorite: true})" class="btn btn-outline-success">Add to
+                Favorites</button>
+            {{/if}}
+            {{#if mealData.thisweek}}
+            <button onclick="updateSavedMeal({{mealData.id}}, {thisweek: false})" class="btn btn-outline-primary">Remove
+                from This Week</button>
+            {{else}}
+            <button onclick="updateSavedMeal({{mealData.id}}, {thisweek: true})" class="btn btn-outline-success">Add to
+                This Week</button>
+            {{/if}}
+            <button onclick="deleteSavedMeal({{mealData.id}})" class="btn btn-outline-danger">Unsave Meal</button>
+            {{else}}
+            <button onclick="addSavedMeal({
+                name: '{{mealData.name}}',
+                description: '{{mealData.description}}',
+                idmeal: {{mealData.idmeal}},
+                category: '{{mealData.category}}',
+                area: '{{mealData.area}}',
+                instructions: '{{mealData.instructions}}',
+                thumbnail: '{{mealData.thumbnail}}',
+                youtube: '{{mealData.youtube}}',
+                source: '{{mealData.source}}',
+                ingredients: {{#if mealData.ingredients}}JSON.parse('{{{json mealData.ingredients}}}'){{else}}[]{{/if}}
+            })" class="btn btn-outline-success">Save Meal</button>
+            {{/if}}
             <a href="/" class="btn btn-outline-primary">Back to Home</a>
         </div>
     </div>
