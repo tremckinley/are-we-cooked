@@ -4,7 +4,7 @@ require("dotenv").config();
 const sequelize = process.env.DATABASE_URL || process.env.DB_URL
   ? new Sequelize(process.env.DATABASE_URL || process.env.DB_URL, {
     dialect: "postgres",
-    logging: false,
+    protocol: "postgres",
     dialectOptions: {
       ssl: {
         require: true,
