@@ -1,14 +1,14 @@
 {{!-- favoriteMealIds and thisWeekMealIds are passed from the home route --}}
-<a href="/meal/{{id}}" class="text-decoration-none">
+<a href="/meal/{{idmeal}}" class="text-decoration-none">
     <article class="meal-card">
         <img src="{{thumbnail}}" alt="{{name}}" height="200" width="200" loading="lazy">
         <h3>{{name}}</h3>
         <p>Origin: {{area}}</p>
-        {{#if favorite}}
+        {{#if (is_included idmeal @root.favoriteMealIds)}}
         <p class="text-success m-0"><small>★ Favorite</small></p>
         {{/if}}
-        {{#if thisweek}}
+        {{#if (is_included idmeal @root.thisWeekMealIds)}}
         <p class="text-black m-0"><small>📅 This Week</small></p>
         {{/if}}
     </article>
-</a>   
+</a>

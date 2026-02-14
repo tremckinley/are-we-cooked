@@ -1,19 +1,29 @@
 const getMealbyFirstLetter = async (letter) => {
     const mealData = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`);
     const mealsObject = await mealData.json();
-    return mealsObject.meals;
+    const configuredMeals = mealsObject.meals.map(meal => configureMealDBData(meal));
+    return configuredMeals;
 }
 
 const getMealbyCategory = async (category) => {
     const mealData = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
     const mealsObject = await mealData.json();
-    return mealsObject.meals;
+    const configuredMeals = mealsObject.meals.map(meal => configureMealDBData(meal));
+    return configuredMeals;
 }
 
 const getMealbyName = async (name) => {
     const mealData = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`);
     const mealsObject = await mealData.json();
-    return mealsObject.meals;
+    const configuredMeals = mealsObject.meals.map(meal => configureMealDBData(meal));
+    return configuredMeals;
+}
+
+const getMealbyArea = async (area) => {
+    const mealData = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`);
+    const mealsObject = await mealData.json();
+    const configuredMeals = mealsObject.meals.map(meal => configureMealDBData(meal));
+    return configuredMeals;
 }
 
 const getRandomMeal = async () => {
@@ -30,7 +40,7 @@ const getRandomMeal = async () => {
     const mealData = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${randomLetter}`);
     const mealsObject = await mealData.json();
     const randomIndex = getRandomIndex(mealsObject.meals);
-    return mealsObject.meals[randomIndex];
+    return configureMealDBData(mealsObject.meals[randomIndex]);
 }
 
 const configureMealDBData = (meal) => {
@@ -46,16 +56,16 @@ const configureMealDBData = (meal) => {
     }
 
     return {
-        name: meal.strMeal,
-        description: `A delicious ${meal.strCategory || "meal"} from ${meal.strArea || "unknown"}.`,
+        name: meal.strMeal || "Unnamed Meal",
+        description: meal.strInstructions ? `A delicious ${meal.strCategory || "meal"} from ${meal.strArea || "unknown"}.` : "No description available.",
         idmeal: meal.idMeal,
-        category: meal.strCategory,
-        area: meal.strArea,
-        instructions: meal.strInstructions,
-        thumbnail: meal.strMealThumb,
-        youtube: meal.strYoutube,
+        category: meal.strCategory || "General",
+        area: meal.strArea || "Global",
+        instructions: meal.strInstructions || "Instructions not available.",
+        thumbnail: meal.strMealThumb || "https://www.themealdb.com/images/media/meals/ll79y21500512899.jpg", // Placeholder
+        youtube: meal.strYoutube || "",
         ingredients: ingredients,
-        source: meal.strSource,
+        source: meal.strSource || "",
         thisweek: false,
         favorite: false
     };
@@ -82,6 +92,7 @@ module.exports = {
     getMealbyFirstLetter,
     getMealbyCategory,
     getMealbyName,
+    getMealbyArea,
     getRandomMeal,
     configureMealDBData,
     getAllCategories,

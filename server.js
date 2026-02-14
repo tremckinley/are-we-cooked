@@ -19,10 +19,10 @@ const hbs = exphbs.create({
       return `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
     },
     is_included: (val, arr) => {
-      if (!arr || !Array.isArray(arr)) {
+      if (!val || !arr || !Array.isArray(arr)) {
         return false;
       }
-      return arr.includes(val);
+      return arr.some(item => String(item) === String(val));
     },
     json: (context) => {
       return JSON.stringify(context);

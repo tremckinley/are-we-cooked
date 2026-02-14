@@ -24,4 +24,14 @@ const getThisWeekMeals = async () => {
     return mealData;
 }
 
-module.exports = { getAllSavedMeals, getFavoriteMeals, getThisWeekMeals };
+const getStatusIds = async () => {
+    const favorites = await getFavoriteMeals();
+    const thisWeek = await getThisWeekMeals();
+
+    return {
+        favoriteMealIds: favorites.map(meal => meal.idmeal),
+        thisWeekMealIds: thisWeek.map(meal => meal.idmeal),
+    };
+}
+
+module.exports = { getAllSavedMeals, getFavoriteMeals, getThisWeekMeals, getStatusIds };

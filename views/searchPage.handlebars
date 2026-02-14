@@ -5,38 +5,38 @@
     <br>
     <h4>Search by Category</h4>
     <div>
-        {{#each categories}}
-        <a href="/search?c={{this}}" class="btn btn-primary m-1">{{this}}</a>
-        {{/each}}
+      {{#each categories}}
+      <a href="/search?category={{this}}" class="btn btn-primary m-1">{{this}}</a>
+      {{/each}}
     </div>
     <br>
     <h4>Search by Area</h4>
     <div>
-        {{#each areas}}
-        <a href="/search?a={{this}}" class="btn btn-primary m-1">{{this}}</a>
-        {{/each}}
+      {{#each areas}}
+      <a href="/search?area={{this}}" class="btn btn-primary m-1">{{this}}</a>
+      {{/each}}
     </div>
     <br>
     <h4>Search by First Letter</h4>
     <div>
-        {{#each firstLetters}}
-        <a href="/search?f={{this}}" class="btn btn-primary m-1">{{this}}</a>
-        {{/each}}
+      {{#each firstLetters}}
+      <a href="/search?letter={{this}}" class="btn btn-primary m-1">{{this}}</a>
+      {{/each}}
     </div>
     {{#if searchResults}}
     <br>
     <h4>Search Results</h4>
     <div class="search-results">
-    <div class="meal-grid">
+      <div class="meal-grid">
         {{#each searchResults}}
         {{> meal-card}}
         {{/each}}
-    </div>
+      </div>
     </div>
     {{/if}}
     {{#unless searchResults}}
     <div class="search-results">
-    <p>No results found. Try searching by category, area, or first letter.</p>
+      <p>No results found. Try searching by category, area, or first letter.</p>
     </div>
     {{/unless}}
   </div>
