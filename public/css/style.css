@@ -26,7 +26,9 @@ footer a {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
     color: #333;
-    min-height: 325px;
+    height: 100%;
+    border: 1px solid grey;
+    background-color: bisque;
 }
 
 .meal-card:hover {
@@ -60,6 +62,8 @@ footer a {
     gap: 10px;
 }
 
+
+
 .search-results {
     border: 1px solid #000000;
     border-radius: 8px;
@@ -75,4 +79,23 @@ footer a {
     color: #333;
     min-height: 325px;
     margin-top: 50px;
+}
+
+
+@media (max-width: 475px) {
+    .meal-grid {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    #meal-grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
 }
