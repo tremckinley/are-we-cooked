@@ -1,3 +1,18 @@
+header {
+    background-color: #faf9f8;
+}
+
+footer {
+    background-color: #faf9f8;
+    
+}
+
+header a,
+footer a {
+    color: #d97800;
+    text-decoration: none;
+}
+
 .meal-card {
     border: 1px solid #eee;
     border-radius: 8px;
